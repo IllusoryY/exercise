@@ -1,1 +1,1 @@
-# exercise
+exercise for computer knowledge
