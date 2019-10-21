@@ -12,10 +12,11 @@ class Stack
 public:
     Stack() : top(nullptr) {}
     ~Stack();
-    void InitStack();
+    void InitStack(int val);
     void Push(int);
     int Pop();
     bool IsEmpty();
+    void Delete();
 private:
     Node* top;
 };
