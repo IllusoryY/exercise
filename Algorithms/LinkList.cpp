@@ -45,8 +45,8 @@ void LinkList::InsertNode(Position pos, int data)
             ++index;
             if(index == pos)
             {
-                tmp->next = curr;
-                pre->next = tmp;
+                tmp->next = curr->next;
+                curr->next = tmp;
                 break;
             }
             pre = curr->next;
@@ -69,7 +69,7 @@ int LinkList::Length()
     return length;
 }
 
-void LinkList::PrintLinkList()
+void LinkList::Print()
 {
     if(!IsEmpty())
     {
@@ -82,7 +82,7 @@ void LinkList::PrintLinkList()
         std::cout << std::endl;
     }
     else
-        std::cout << "空链表" << std::endl;
+        std::cout << "这条链表是空的" << std::endl;
 }
 
 bool LinkList::IsEmpty()
@@ -110,9 +110,24 @@ void LinkList::DeleteNode(Position pos)
     }     
 }
 
-void LinkList::DeleteLinkList()
+void LinkList::Delete()
 {
     while(Length() != 0)
         DeleteNode(1);
 }
 
+int main()
+{
+    LinkList l;    
+    l.InitLinkList(3);
+    l.Print();
+
+    l.InsertNode(1,1);
+    l.Print();
+    
+    std::cout << (l.IsEmpty() ? "空" : "非空") << std::endl;
+    
+    l.Delete();
+    l.Print();
+    return 0;
+}

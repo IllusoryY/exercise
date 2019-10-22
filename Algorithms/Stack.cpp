@@ -51,3 +51,30 @@ void Stack::Delete()
         curr = top;
     }
 }
+
+void Stack::Print()
+{
+    Node* curr = top;
+    while(curr)
+    {
+        std::cout << curr->data << " ";
+        curr = curr->next;
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    Stack s;
+    
+    s.Push(2);
+    s.Push(3);
+    s.Print();
+
+    s.Pop();
+    s.Print();
+
+    s.Delete();
+    std::cout << (s.IsEmpty() ? "空" : "非空") << std::endl;
+    return 0;
+}
