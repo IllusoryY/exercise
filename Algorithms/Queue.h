@@ -1,10 +1,10 @@
 class Queue
 {
 public:
-    Queue();
+    Queue(int);
     ~Queue();
     void Dequeue();
-    void Enqueue();
+    void Enqueue(int val);
     void Print();
     void MakeEmpty();
     bool IsEmpty();
@@ -13,5 +13,5 @@ private:
     int size_;
     int front_;
     int rear_;
-    int arr[];
-}
+    int* arr;
+};
