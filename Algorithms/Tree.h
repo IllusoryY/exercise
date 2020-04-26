@@ -10,9 +10,9 @@ class Tree
 public:
     Tree();
     ~Tree();
-    void insert(int val);
-    TreeNode* search(int val);
-    void dele(int val);
+    void insert(int data);
+    TreeNode* search(int data);
+    void dele(int data);
 private:
     TreeNode* T;
 };

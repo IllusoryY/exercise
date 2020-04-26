@@ -12,7 +12,7 @@ class Stack
 public:
     Stack() : top(nullptr) {}
     ~Stack() {}
-    void InitStack(int val);
+    void InitStack(int data);
     void Push(int);
     int Pop();
     bool IsEmpty();

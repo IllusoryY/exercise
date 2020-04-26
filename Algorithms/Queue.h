@@ -4,7 +4,7 @@ public:
     Queue(int);
     ~Queue();
     void Dequeue();
-    void Enqueue(int val);
+    void Enqueue(int data);
     void Print();
     void MakeEmpty();
     bool IsEmpty();

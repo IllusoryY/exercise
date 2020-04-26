@@ -28,7 +28,7 @@ void LinkList::InsertNode(Position pos, int data)
     Node* pre = nullptr;
 
     Node* tmp = new Node();
-    tmp->val = data;
+    tmp->data = data;
     tmp->next = nullptr;
 
     if(pos > length)
@@ -76,7 +76,7 @@ void LinkList::Print()
         Node* curr = header->next;
         while(curr != nullptr)
         {
-            std::cout << curr->val << " ";
+            std::cout << curr->data << " ";
             curr = curr->next;
         }
         std::cout << std::endl;
