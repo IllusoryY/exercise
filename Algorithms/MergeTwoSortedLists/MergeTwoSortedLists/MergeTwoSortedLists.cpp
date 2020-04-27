@@ -83,6 +83,5 @@ int main()
 		result = tmp;
 	}
 
-	system("pause");
 	return 0;
 }
