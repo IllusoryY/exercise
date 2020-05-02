@@ -10,11 +10,11 @@ getMin() -- Retrieve the minimum element in the stack.
 #include<iostream>
 #include<stack>
 
-//待完成
 using std::stack;
 
 class MinStack
 {
+public:
 	MinStack()
 	{
 
@@ -24,15 +24,15 @@ class MinStack
 	{
 		if (minS.empty() || x < minS.top())	minS.push(x);
 		stc.push(x);
-
 	}
 
 	void pop()
 	{
 		if (stc.top() == minS.top())
 		{
-
+			minS.pop();
 		}
+		stc.pop();
 	}
 
 	int top()
@@ -52,17 +52,15 @@ private:
 
 int main()
 {
-	Queue que;
-	que.push(1);
-	que.push(2);
+	MinStack sc;
+	sc.push(2);
+	sc.push(1);
 
-	std::cout << "队列第一个值为" << que.peek() << std::endl;
-	std::cout << que.pop() << std::endl;
+	std::cout << "最小值为" << sc.getMin() << std::endl;
+	sc.pop();
 
-	que.push(3);
-	std::cout << "队列第一个值为" << que.peek() << std::endl;
-
-	std::cout << (que.empty() ? "队列为空" : "队列不为空") << std::endl;
+	sc.push(3);
+	std::cout << "最小值为" << sc.getMin() << std::endl;
 
 	return 0;
 }
