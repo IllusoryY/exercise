@@ -52,24 +52,38 @@ TreeNode *MakeTree()
 	ptr2->left = ptr4;
 	ptr2->right = ptr5;
 	ptr3->left = ptr6;
-	ptr3->right = ptr2;
+	ptr3->right = ptr7;
 	ptr5->right = ptr8;
 
 	return head;
 }
 
+// void print_tree(TreeNode *root)
+{
+	if (root != nullptr)
+	{
+		std::cout << root->val << " ";
+		print_tree(root ->left);
+		print_tree(root->right);
+	}
+}
+
+int n = 0;
+
 bool deleteTree(TreeNode *root)
 {
 	if (!root) return true;
 
-	if (root->left == nullptr && root->right != nullptr &&
+	if (root->left == nullptr && root->right == nullptr &&
 		root != nullptr) delete root;
 
-	cout << "我是析构函数" << endl;
+	
+	print_tree(root);
+	cout << endl;
+	cout << "第" << ++n << "次调用析构函数" << endl;
 	return deleteTree(root->left) && deleteTree(root->right);
 }
 
-//结果有误待调整
 int main()
 {
 	Solution s;
