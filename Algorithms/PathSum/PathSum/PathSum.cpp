@@ -58,30 +58,18 @@ TreeNode *MakeTree()
 	return head;
 }
 
-// void print_tree(TreeNode *root)
-{
-	if (root != nullptr)
-	{
-		std::cout << root->val << " ";
-		print_tree(root ->left);
-		print_tree(root->right);
-	}
-}
-
 int n = 0;
 
 bool deleteTree(TreeNode *root)
 {
-	if (!root) return true;
-
-	if (root->left == nullptr && root->right == nullptr &&
-		root != nullptr) delete root;
-
-	
-	print_tree(root);
-	cout << endl;
-	cout << "第" << ++n << "次调用析构函数" << endl;
-	return deleteTree(root->left) && deleteTree(root->right);
+	if (root)
+	{
+		deleteTree(root->left);
+		deleteTree(root->right);
+		cout << "第" << ++n << "次调用析构函数" << endl;
+		delete root;
+	}
+	return true;
 }
 
 int main()
@@ -91,7 +79,7 @@ int main()
 	TreeNode *root = MakeTree();
 	cout << (s.hasPathSum(root, 22) ? "我是真的" : "我是假的") << endl;
 
-	//deleteTree(root);
+	deleteTree(root);
 	system("pause");
 	return 0;
 }

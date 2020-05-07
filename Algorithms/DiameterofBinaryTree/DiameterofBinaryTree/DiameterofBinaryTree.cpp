@@ -59,15 +59,19 @@ TreeNode *MakeTree()
 	return head;
 }
 
+int n = 0;
+
 bool deleteTree(TreeNode *root)
 {
-	if (!root) return true;
+	if (root)
+	{
+		deleteTree(root->left);
+		deleteTree(root->right);
+		cout << "第" << ++n << "次调用析构函数删除节点" << root->val << endl;
+		delete root;
+	}
 
-	if (root->left == nullptr && root->right != nullptr &&
-		root != nullptr) delete root;
-
-	cout << "我是析构函数" << endl;
-	return deleteTree(root->left) && deleteTree(root->right);
+	return true;
 }
 
 int main()
