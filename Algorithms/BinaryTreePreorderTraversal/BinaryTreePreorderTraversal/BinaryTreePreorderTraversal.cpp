@@ -3,12 +3,12 @@ Given a binary tree, return the preorder traversal of its nodes' values.
 */
 #include<iostream>
 #include<vector>
-#include<queue>
+#include<stack>
 
 using std::cout;
 using std::endl;
 using std::vector;
-using std::queue;
+using std::stack;
 
 struct TreeNode
 {
@@ -25,15 +25,15 @@ public:
 	vector<int> preorderTraversal(TreeNode* root) {
 		vector<int> ans;
 
-		queue<TreeNode*> que;
-		if(root)	que.push(root);
-		while (!que.empty())
+		stack<TreeNode*> st;
+		if(root)	st.push(root);
+		while (!st.empty())
 		{
-			TreeNode* tmp = que.front();
-			que.pop();
+			TreeNode* tmp = st.top();
+			st.pop();
 			ans.push_back(tmp->val);
-			if (tmp->left) que.push(tmp->left);
-			if (tmp->right) que.push(tmp->right);
+			if (tmp->right) st.push(tmp->right);
+			if (tmp->left) st.push(tmp->left);
 		}
 
 		return ans;
@@ -45,12 +45,14 @@ TreeNode *MakeTree()
 	TreeNode *head = new TreeNode(1);
 	TreeNode *ptr1 = new TreeNode(2);
 	TreeNode *ptr2 = new TreeNode(3);
-	/*TreeNode *ptr3 = new TreeNode(15);
-	TreeNode *ptr4 = new TreeNode(7);*/
+	TreeNode *ptr3 = new TreeNode(15);
+	TreeNode *ptr4 = new TreeNode(7);
 	//TreeNode *ptr5 = new TreeNode(4);
 	//TreeNode *ptr6 = new TreeNode(3);
-	head->right = ptr1;
-	ptr1->left = ptr2;
+	head->left = ptr1;
+	head->right = ptr2;
+	ptr1->left = ptr3;
+	ptr3->right = ptr4;
 	/*ptr2->left = ptr3;
 	ptr2->right = ptr4;*/
 	/*ptr2->left = ptr5;
