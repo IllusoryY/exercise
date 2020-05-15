@@ -18,7 +18,6 @@ public:
 		}	
 	}
 
-	LinkList(const T& data);
 	LinkList(const LinkList& lhs);    //拷贝构造函数
 	LinkList<T>& operator= (LinkList<T>& lhs); //赋值构造函数
 

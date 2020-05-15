@@ -9,7 +9,8 @@ int main()
 	LinkList<int> iList2(ilist);
 	iList2.print();
 
-	LinkList<int> ilist3 = iList2;
+	LinkList<int> ilist3;
+	ilist3 = iList2;
 	ilist3.print();
 
 	ilist.print();
@@ -25,6 +26,6 @@ int main()
 
 	ilist.my_reverse();
 	ilist.print();
-
+	system("pause");
 	return 0;
 }

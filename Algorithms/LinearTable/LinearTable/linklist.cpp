@@ -1,13 +1,4 @@
 #include"linklist.h"
-
-template<typename T>
-LinkList<T>::LinkList(const T& data)
-{
-	_dummy = new LinkListNode<T>(data);
-	++_size;
-	memory_is_full(_dummy);
-}
-
 //¿½±´¹¹Ôìº¯Êý
 template<typename T>
 LinkList<T>::LinkList(const LinkList& lhs)
@@ -19,7 +10,7 @@ LinkList<T>::LinkList(const LinkList& lhs)
 	LinkListNode<T>* cur = _dummy;
 	while (prl)
 	{
-		LinkListNode<T>* tmp = new LinkListNode<T>(prl->_data, prl->next);
+		LinkListNode<T>* tmp = new LinkListNode<T>(prl->_data);
 		memory_is_full(tmp);
 		cur->next = tmp;
 		cur = cur->next;
@@ -43,7 +34,7 @@ LinkList<T>& LinkList<T>::operator= (LinkList<T>& lhs)
 	LinkListNode<T>* cur = _dummy;
 	while (prl)
 	{
-		LinkListNode<T>* tmp = new LinkListNode<T>(prl->_data, prl->next);
+		LinkListNode<T>* tmp = new LinkListNode<T>(prl->_data);
 		memory_is_full(tmp);
 		cur->next = tmp;
 		cur = cur->next;
@@ -62,9 +53,9 @@ LinkList<T>::~LinkList()
 }
 
 template<typename T>
-void memory_is_full(T data)
+void memory_is_full(T* item)
 {
-	if (data == nullptr)
+	if (item == nullptr)
 	{
 		std::cout << "out of memory" << std::endl;
 		exit(-1);
