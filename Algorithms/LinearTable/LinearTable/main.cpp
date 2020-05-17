@@ -2,6 +2,8 @@
 #include"linklist.cpp"
 #include"stack.h"
 #include"stack.cpp"
+#include"queue.h"
+#include"queue.cpp"
 
 int main()
 {
@@ -52,6 +54,22 @@ int main()
 	std::cout << (s.is_empty() ? "空栈" : "非空") << std::endl;
 
 	std::cout << "-----------------------------here is stack test end-----------------------------" << std::endl;
-	system("pause");
+
+	std::cout << "-----------------------------here is queue test begin-----------------------------" << std::endl;
+	my_queue<int> q;
+	q.push(1);
+	q.push(2);
+	q.push(3);
+	q.print();
+
+	q.pop();
+	q.print();
+
+	std::cout << "queue的大小为：" << q.size() << std::endl;
+	std::cout << "队列首元素为：" << q.front() << std::endl;
+	std::cout << "队列尾元素为：" << q.back() << std::endl;
+	std::cout << (q.is_empty() ? "空队列" : "非空") << std::endl;
+
+	std::cout << "-----------------------------here is queue test end-----------------------------" << std::endl;
 	return 0;
 }
