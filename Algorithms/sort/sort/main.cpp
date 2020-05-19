@@ -8,7 +8,9 @@ int main()
 	int len = sizeof(array) / sizeof(array[0]);
 	//selectsort(array, len);     //—°‘Ò≈≈–Ú
 	//insertsort(array, len);
-	bubblesort(array, len);
+	//bubblesort(array, len);
+	
+	shellsort(array, len);
 	for (int i = 0; i < len; ++i)
 	{
 		std::cout << array[i] << " ";
