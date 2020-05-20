@@ -1,4 +1,7 @@
 #pragma once
+#include<vector>
+using std::vector;
+
 void swap(int array[], int i, int j)
 {
 	int tmp = array[i];
@@ -62,4 +65,35 @@ void shellsort(int array[], const int size)
 		}
 		h = h / 3;
 	}
+}
+
+void merge(int arr[], int low, int mid, int high);
+void mergesort(int arr[], int low, int high) {
+	if (low >= high) { return; } 
+
+	int mid = low + (high - low) / 2;  
+	mergesort(arr, low, mid);  
+	mergesort(arr, mid + 1, high);  
+	merge(arr, low, mid, high);  
+}
+
+void merge(int arr[], int low, int mid, int high) {
+	int i = low, j = mid + 1, k = 0;  
+	int *temp = new int[high - low + 1];
+
+	while (i <= mid && j <= high) {
+		if (arr[i] <= arr[j]) 
+			temp[k++] = arr[i++];
+		else
+			temp[k++] = arr[j++];
+	}
+
+	while (i <= mid)
+		temp[k++] = arr[i++];
+	while (j <= high)
+		temp[k++] = arr[j++];
+
+	for (i = low, k = 0; i <= high; i++, k++)
+		arr[i] = temp[k];
+	delete[]temp;
 }

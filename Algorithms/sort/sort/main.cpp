@@ -9,8 +9,9 @@ int main()
 	//selectsort(array, len);     //—°‘Ò≈≈–Ú
 	//insertsort(array, len);
 	//bubblesort(array, len);
-	
-	shellsort(array, len);
+	//shellsort(array, len);
+
+	mergesort(array, 0, len - 1);
 	for (int i = 0; i < len; ++i)
 	{
 		std::cout << array[i] << " ";
