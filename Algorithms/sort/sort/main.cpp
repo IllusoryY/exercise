@@ -1,31 +1,50 @@
-#include<iostream>
 #include "helper.h"
+#include<cstdlib>
+#include<time.h>
+#pragma once
+#include<iostream>
 
+const int ARRAR_LEN = 10;
+using namespace std;
 int main()
 {
-	int array[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+	int* array = new int[ARRAR_LEN];
+	for (int i = 0; i < ARRAR_LEN; ++i)
+	{
+		array[i] = (rand() % 101);
+	}
 
-	int fd[2];
+	/*int fd[2];
 	for (int i = 0; i < 2; ++i)
 	{
 		fd[i] = 5;
 	}
 	for (int i : fd)
 		std::cout << i << " ";
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
-	int len = sizeof(array) / sizeof(array[0]);
+	cout << "----------ÅÅÐòÇ°----------" << endl;
+	int len = ARRAR_LEN;
+	for (int i = 0; i < ARRAR_LEN; ++i)
+	{
+		std::cout << array[i] << " ";
+	}
+	cout << endl;
 	//selectsort(array, len);     //Ñ¡ÔñÅÅÐò
 	//insertsort(array, len);
 	//bubblesort(array, len);
 	//shellsort(array, len);
-
-	mergesort(array, 0, len - 1);
+	//mergesort(array, 0, len - 1);
+	//quickSort(array, 0, len);
+	heapSort(array, len);
+	
+	cout << "----------ÅÅÐòºó----------" << endl;
 	for (int i = 0; i < len; ++i)
 	{
 		std::cout << array[i] << " ";
 	}
 	std::cout << std::endl;
+	delete[] array;
 	system("pause");
 	return 0;
 }
